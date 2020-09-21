@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Webblog</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      
+   </head>
+   
+   <body>
+   
+      <h1>Welcome to my splendid Webblog</h1>
+      
+      <p th:text="${title}"></p>
+      
+      <!-- New Post Creation -->
+      <a href="/newPost">New Post</a>
+      
+      <!-- Table of Posts -->
+      <table>
+      	<tr th:each ="post : ${posts}">
+      		
+      		<td th:text="${post.creationDate}"></td>
+      		<td th:text="${post.content}"></td>
+      		
+      		<td><a th:href="@{/newComment(postId=${post.id})}">New Comment</a></td>
+      		
+      	</tr>
+      </table>
+      
+      
+   </body>
+    
+</html>
