@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>New Post</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	
+</head>
+
+<body>
+
+	<form th:action="@{/saveNewComment}" th:object="${newComment}" method="POST">
+	
+		Text: <input type="text" th:field="*{text}" /> <br />
+		Author: <input type="text" th:field="*{author}" /> <br /> 
+		
+		<input type="hidden" th:field="*{postId}" th:value="${newComment.postId}" />
+		
+		<input type="submit" value="Create" />
+		
+	</form>
+
+
+</body>
+</html>
