@@ -21,3 +21,4 @@ ssh-keygen -t rsa
 Add public key to GitHub profile
 Add private key to Jenkins credentials
 
+Docker Plugin in Jenkins
