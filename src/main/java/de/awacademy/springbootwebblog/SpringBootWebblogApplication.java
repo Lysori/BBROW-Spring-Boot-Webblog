@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 import de.awacademy.springbootwebblog.dtos.PostDto;
 import de.awacademy.springbootwebblog.entities.Comment;
@@ -22,7 +23,7 @@ import de.awacademy.springbootwebblog.services.PostService;
 
 
 @SpringBootApplication
-public class SpringBootWebblogApplication {
+public class SpringBootWebblogApplication extends SpringBootServletInitializer {
 
 	@Autowired
 	private PostRepository postRepository;
