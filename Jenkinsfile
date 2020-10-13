@@ -7,7 +7,7 @@ pipeline {
         stage('test mvn compile') {
             steps {
                 script {
-                    echo 'webhook'
+                    echo 'webhook2'
                     infincompile.compile()
                     echo 'Funktionstest'
                 }
