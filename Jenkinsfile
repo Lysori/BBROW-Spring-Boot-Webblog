@@ -4,7 +4,7 @@
 pipeline {
     agent any
     environment{
-        pompath = pompath_BBROW
+        pompath = '/var/jenkins_home/workspace/BBROW/pom.xml'
     }
     stages {
         stage('mvn compile') {
