@@ -1,6 +1,6 @@
 @Library('Fork-lyso')
 import bbrow.maven.mavencompile
-import bbrow.maven.services
+import bbrow.maven.mavencompileInterface
 
 
 pipeline {
