@@ -1,4 +1,6 @@
-@Library('Fork-lyso') _
+@Library('Fork-lyso')
+import bbrow.maven.mavencompile
+
 
 pipeline {
     agent any
