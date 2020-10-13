@@ -10,6 +10,7 @@ pipeline {
             steps {
                 script {
                 mavencompile.version()
+                    echo 'Funktionstest'
                 }
             }
         }
