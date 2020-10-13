@@ -3,7 +3,7 @@
 
 pipeline {
     agent any
-    enviroment{
+    environment{
         pompath = pompath_BBROW
     }
     stages {
