@@ -1,4 +1,4 @@
-@Library('Fork-lyso')_
+@Library('Fork-lyso') _
 
 pipeline {
     agent any
@@ -9,31 +9,7 @@ pipeline {
                 mavencompile.compile()
                 }
             }
-         }
-        stage('nexus upload') {
-            steps {
-            	echo 'nexus upload'
-            }
         }
-        stage('artifact package') {
-            steps {
-                echo 'artifact package'
-            }
-        }
-        stage('container runs') {
-            steps {
-            	echo 'container runs'
-            }
-        }
-        stage('integration tests') {
-            steps {
-            	echo 'integration tests'
-            }
-        }
-        stage('container stops') {
-            steps {
-            	echo 'container stops'
-            }
-        }
+        
     }
 }
