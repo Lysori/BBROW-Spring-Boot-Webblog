@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     
-                    echo 'mvn test'
+                    bbrowtest.test(POMPATH)
                     
                 }
             }
