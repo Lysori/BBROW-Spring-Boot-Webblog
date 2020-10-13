@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     
-                    bbrowtest.test(POMPATH)
+                    bbrowtest.maventest(POMPATH)
                     
                 }
             }
