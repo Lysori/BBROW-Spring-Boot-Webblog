@@ -6,7 +6,7 @@ pipeline {
         stage('test mvn compile') {
             steps {
                 script {
-                mavencompile.compile()
+                mavencompile.version()
                 }
             }
         }
