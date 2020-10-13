@@ -3,27 +3,21 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.2.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-
+	<packaging>war</packaging>
 	<groupId>de.awacademy</groupId>
-	<artifactId>spring-boot-webblog</artifactId>
+	<artifactId>bbrow_webblog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
-	<packaging>war</packaging> <!-- Deploy Spring Boot to Tomcat -->
-
-	<name>spring-boot-webblog</name>
+	<name>bbrow_webblog</name>
 	<description>Spring Boot Webblog Project</description>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<groovy.cps.version>1.30</groovy.cps.version>
-		<groovy.version>3.0.4</groovy.version>
 	</properties>
 
 	<dependencies>
@@ -41,6 +35,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -65,58 +64,15 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
-		<dependency> <!-- Deploy Spring Boot to Tomcat -->
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>com.cloudbees</groupId>
-			<artifactId>groovy-cps</artifactId>
-			<version>${groovy.cps.version}</version>
-			</dependency>
-		<dependency>
-			<groupId>org.codehaus.groovy</groupId>
-			<artifactId>groovy</artifactId>
-			<version>${groovy.version}</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>
-		<finalName>${artifactId}</finalName> <!-- Deploy Spring Boot to Tomcat -->
-		
+		<finalName>bbrow_webblog</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-		<plugin>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.8.1</version>
-			<configuration>
-				<compilerId>groovy-eclipse-compiler</compilerId>
-				<source>${jdk.version}</source>
-				<target>${jdk.version}</target>
-				<encoding>${project.build.sourceEncoding}</encoding>
-			</configuration>
-			<dependencies>
-				<dependency>
-					<groupId>org.codehaus.groovy</groupId>
-					<artifactId>groovy-eclipse-compiler</artifactId>
-					<version>3.5.0-01</version>
-					</dependency>
-				<dependency>
-					<groupId>org.codehaus.groovy</groupId>
-					<artifactId>groovy-eclipse-batch</artifactId>
-					<version>2.5.8-02</version>
-				</dependency>
-			</dependencies>
-		</plugin>
 		</plugins>
 	</build>
-
 </project>
