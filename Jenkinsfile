@@ -3,6 +3,9 @@
 
 pipeline {
     agent any
+    enviroment{
+        pompath = pompath_BBROW
+    }
     stages {
         stage('mvn compile') {
             steps {
