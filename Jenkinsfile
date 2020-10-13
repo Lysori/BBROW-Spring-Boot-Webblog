@@ -1,12 +1,13 @@
+@Library('Fork-lyso')
+
 pipeline {
-    agent none
-    environment {
-        NEXUS_HOST = 'nexus:8081'
-    }
+    agent any
     stages {
-        stage('unit tests') {
+        stage('test mvn compile') {
             steps {
-                echo 'unit tests'
+                script {
+                mavencompile.compile()
+                }
             }
          }
         stage('nexus upload') {
