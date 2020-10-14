@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
                     
-                    infincompile.compile([flag:" -f ", pomfile:${'WORKSPACE'}]) 
+                    mvn.compile() 
                     
                 }
             }
