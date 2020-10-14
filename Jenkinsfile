@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     
-                    bbrowtest.maventest(POMPATH)
+                    mvn.test()
                     
                 }
             }
