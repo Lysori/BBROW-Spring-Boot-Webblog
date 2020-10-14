@@ -3,15 +3,13 @@
 
 pipeline {
     agent any
-    environment{
-        POMPATH = '/var/jenkins_home/workspace/BBROW/pom.xml'
-    }
+
     stages {
         stage('mvn compile') {
             steps {
                 script {
                     
-                    infincompile.compile([flag:" -f ", pomfile: pompath]) 
+                    mvn.compile() 
                     
                 }
             }
@@ -20,7 +18,7 @@ pipeline {
             steps {
                 script {
                     
-                    bbrowtest.maventest(POMPATH)
+                    mvn.test()
                     
                 }
             }
