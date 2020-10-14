@@ -3,9 +3,7 @@
 
 pipeline {
     agent any
-    environment{
-        WORKSPACE
-    }
+
     stages {
         stage('mvn compile') {
             steps {
