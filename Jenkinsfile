@@ -4,14 +4,14 @@
 pipeline {
     agent any
     environment{
-        POMPATH = '/var/jenkins_home/workspace/BBROW/pom.xml'
+        WORKSPACE
     }
     stages {
         stage('mvn compile') {
             steps {
                 script {
                     
-                    infincompile.compile([flag:" -f ", pomfile: pompath]) 
+                    infincompile.compile([flag:" -f ", pomfile:${'WORKSPACE'}) 
                     
                 }
             }
