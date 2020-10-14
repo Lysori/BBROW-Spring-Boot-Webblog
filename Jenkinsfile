@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     
-                    infincompile.compile(POMPATH) 
+                    infincompile.compile([flag:" -f ", pomfile: pompath]) 
                     
                 }
             }
