@@ -39,11 +39,6 @@ pipeline {
                 script {
                     
                     mvn.artifactpackage()
-                    
-                }
-
-                script {
-                    
                     mvn.deploy()
                     
                 }
