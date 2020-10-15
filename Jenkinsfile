@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-       YMLPATH = 'buildImage.yml'
+       POMPATH = '/var/jenkins_home/workspace/BBROW_Multi_master/pom.xml'
     }
     stages {
         stage('mvn compile') {
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     
-                    ansibleplay.buildImage()
+                    ansibleplay.maventest(POMPATH)
                     
                 }
             }
