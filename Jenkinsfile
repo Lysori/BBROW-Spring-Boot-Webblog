@@ -39,35 +39,26 @@ pipeline {
                 script {
                     
                     mvn.artifactpackage()
-                    mvn.deploy()
+                    ansible-playbook.buildImage()
                     
                 }
             }
         }
 
-        stage('mvn Install') {
+     stage('Pull and Build Image') {
             steps {
                 script {
                     
-                    echo 'mvn Install'
+                  echo 'ansible-playbook pull from nexus and buildImage.yml'
                     
                 }
             }
         }
-     stage('Docker Image') {
+     stage('Push Image') {
             steps {
                 script {
                     
-                  echo 'Docker Image'
-                    
-                }
-            }
-        }
-     stage('Docker Push') {
-            steps {
-                script {
-                    
-                  echo 'Docker Push'
+                  echo 'ansible-playbook pushImage.yml'
                     
                 }
             }
