@@ -1,9 +1,8 @@
-
-
-
 pipeline {
     agent any
-
+    environment {
+       YMLPATH = 'buildImage.yml'
+    }
     stages {
         stage('mvn compile') {
             steps {
@@ -41,9 +40,10 @@ pipeline {
                     mvn.artifactpackage()
                     
                 }
+                
                 script {
                     
-                    mvn.compile()
+                    ansible-playbook.buildImage(YMLPATH)
                     
                 }
             }
