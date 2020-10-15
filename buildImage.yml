@@ -1,0 +1,18 @@
+---
+  - name: Build Spring-Boot-Webblog Image and Push to Registry
+    hosts: localhost
+    tasks:  
+    - name: Remove image
+      docker_image:
+        state: absent
+        name: bbrow/webblog
+        tag: v1
+
+    - name: Build webserver image
+      docker_image:
+        name: bbrow/webblog
+        build:
+         pull: no
+         path: .
+        tag: v1
+        source: build

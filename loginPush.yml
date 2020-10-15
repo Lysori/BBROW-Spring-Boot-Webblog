@@ -1,0 +1,17 @@
+---
+  - name: Build Spring-Boot-Webblog Image and Push to Registry
+    hosts: localhost
+    tasks:
+    - name: Login devopsdus2020.azurecr.io
+      docker_login:
+        registry_url: devopsdus2020.azurecr.io
+        username: "{{USER}}"
+        password: "{{PASSWORD}}"
+        
+    - name: push to registry
+      docker_image:
+        name: bbrow/webblog:v1
+        repository: devopsdus2020.azurecr.io/bbrow
+        tag: v1
+        push: yes
+        source: local
