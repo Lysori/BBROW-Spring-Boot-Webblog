@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-       POMPATH = '/var/jenkins_home/workspace/BBROW_Multi_master/pom.xml'
+       POMPATH = '/var/jenkins_home/workspace/BBROW/pom.xml'
     }
     stages {
         stage('mvn compile') {
