@@ -37,13 +37,7 @@ pipeline {
             steps {
                 script {
                     
-                    mvn.artifactpackage()
-                    
-                }
-                
-                script {
-                    
-                    ansibleplaybook.imagebuild()
+                    ansibleplay.imagebuild()
                     
                 }
             }
