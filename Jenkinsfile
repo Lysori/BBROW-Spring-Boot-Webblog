@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     
-                    ansible-playbook.imagebuild()
+                    ansibleplay.imagebuild()
                     
                 }
             }
