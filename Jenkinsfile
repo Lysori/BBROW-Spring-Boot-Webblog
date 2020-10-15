@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     
-                    ansibleplay.maventest(POMPATH)
+                    ansibleplay.maventest()
                     
                 }
             }
