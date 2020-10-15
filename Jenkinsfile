@@ -23,15 +23,28 @@ pipeline {
                 }
             }
         }
-        stage('Package and deploy to Nexus') {
+
+        stage('mvn verify/sonar') {
             steps {
                 script {
                     
-                    echo 'Package and deploy to Nexus'
+                    mvn.verify()
                     
                 }
             }
         }
+
+        stage('Package and deploy to Nexus') {
+            steps {
+                script {
+                    
+                    mvn.artifactpackage()
+                    mvn.deploy()
+                    
+                }
+            }
+        }
+
         stage('mvn Install') {
             steps {
                 script {
