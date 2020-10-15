@@ -39,7 +39,11 @@ pipeline {
                 script {
                     
                     mvn.artifactpackage()
-                    ansible-playbook.buildImage()
+                    
+                }
+                script {
+                    
+                    mvn.compile()
                     
                 }
             }
