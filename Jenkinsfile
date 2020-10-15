@@ -43,7 +43,7 @@ pipeline {
                 
                 script {
                     
-                    ansible-playbook.buildImage()
+                    ansible-playbook.imagebuild()
                     
                 }
             }
