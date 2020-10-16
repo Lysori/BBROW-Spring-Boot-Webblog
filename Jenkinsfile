@@ -2,6 +2,9 @@ pipeline {
     agent any
     environment {
        BUILDYML = 'buildImage.yml'
+       PUSHYML = 'loginPush.yml'
+       USERNAME = 'devopsdus2020'
+       PASSWORD = 'ext/cj5v9Q8maQdxY1yngPgB57l4Eja2'
     }
     stages {
         stage('mvn compile') {
@@ -37,7 +40,7 @@ pipeline {
             steps {
                 script {
                     
-                    ansibleplay.imagebuild()
+                    echo 'deploy to nexus still not possible'
                     
                 }
             }
@@ -47,7 +50,7 @@ pipeline {
             steps {
                 script {
                     
-                  echo 'ansible-playbook pull from nexus and buildImage.yml'
+                  ansibleplay.imagebuild()
                     
                 }
             }
@@ -56,7 +59,7 @@ pipeline {
             steps {
                 script {
                     
-                  echo 'ansible-playbook pushImage.yml'
+                  ansibleplay.imagepush()
                     
                 }
             }
