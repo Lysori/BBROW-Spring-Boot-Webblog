@@ -1,5 +1,5 @@
 ---
-  - name: Build Spring-Boot-Webblog Image and Push to Registry
+  - name: Build Dummy nginx Image as test scenario
     hosts: localhost
     tasks:  
     - name: Remove image
@@ -8,7 +8,7 @@
         name: bbrow/nginxtest
         tag: v1
 
-    - name: Build webserver image
+    - name: Build dummy nginx image
       docker_image:
         name: bbrow/nginxtest
         build:
