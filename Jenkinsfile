@@ -59,7 +59,7 @@ pipeline {
             steps {
                 script {
                     
-                  echo 'ansibleplay.imagepush()'
+                  ansibleplay.imagepush()
                     
                 }
             }
