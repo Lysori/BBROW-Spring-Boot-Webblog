@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-       POMPATH = '/var/jenkins_home/workspace/BBROW/pom.xml'
+       YMLPATH = 'buildImage.yml'
     }
     stages {
         stage('mvn compile') {
