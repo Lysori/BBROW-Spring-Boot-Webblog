@@ -5,14 +5,14 @@
     - name: Remove image
       docker_image:
         state: absent
-        name: bbrow/webblog
+        name: bbrow/nginxtest
         tag: v1
 
     - name: Build webserver image
       docker_image:
-        name: bbrow/webblog
+        name: bbrow/nginxtest
         build:
          pull: no
-         path: .
+         path: testdockerfiles/
         tag: v1
         source: build

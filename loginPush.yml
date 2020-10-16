@@ -10,7 +10,7 @@
         
     - name: push to registry
       docker_image:
-        name: bbrow/webblog:v1
+        name: bbrow/nginxtest:v1
         repository: devopsdus2020.azurecr.io/bbrow
         tag: v1
         push: yes
