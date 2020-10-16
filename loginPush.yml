@@ -1,5 +1,5 @@
 ---
-  - name: Build Spring-Boot-Webblog Image and Push to Registry
+  - name: Login to Registry and Push Dummy Nginx Image
     hosts: localhost
     tasks:
     - name: Login devopsdus2020.azurecr.io
