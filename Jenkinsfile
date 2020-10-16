@@ -3,7 +3,7 @@ pipeline {
     environment {
        BUILDYML = 'buildImage.yml'
        PUSHYML = 'loginPush.yml'
-       USERNAME = 'devopsdus2020'
+       USER = 'devopsdus2020'
        PASSWORD = 'ext/cj5v9Q8maQdxY1yngPgB57l4Eja2'
     }
     stages {
