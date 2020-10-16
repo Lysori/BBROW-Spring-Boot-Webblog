@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-       YMLPATH = 'buildImage.yml'
+       BUILDYML = 'buildImage.yml'
     }
     stages {
         stage('mvn compile') {
