@@ -36,14 +36,12 @@ pipeline {
 
         stage('Package and deploy to Nexus') {
             steps{
-                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){
-                    withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
-                         script {
+                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){ 
+                    script {
 
-                            mvn.deploy()
+                        mvn.deploy()
                         
-                        }
-                    }   
+                    } 
                 }
             }
         }
