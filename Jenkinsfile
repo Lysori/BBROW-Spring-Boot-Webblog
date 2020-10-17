@@ -37,11 +37,13 @@ pipeline {
         stage('Package and deploy to Nexus') {
             steps{
                 configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_SETTINGS')]){
-                    script {
+                    withCredentials([usernamePassword(credentialsId: 'Nexus', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
+                         script {
 
-                        mvn.deploy()
+                            mvn.deploy()
                         
-                    }
+                        }
+                    }   
                 }
             }
         }
@@ -57,7 +59,7 @@ pipeline {
         }
      stage('Push Image') {
             steps {
-              withCredentials([usernamePassword(credentialsId: 'AZURECR', usernameVariable: 'AZURECR_USERNAME', passwordVariable: 'AZURECR_PASSWORD')]) {
+              withCredentials([usernamePassword(credentialsId: 'AZURECR', usernameVariable: 'AZURECR_USER', passwordVariable: 'AZURECR_PASSWORD')]) {
                 
                 script {
                     
