@@ -11,9 +11,9 @@
 	</parent>
 	<packaging>war</packaging>
 	<groupId>de.awacademy</groupId>
-	<artifactId>bbrow_webblog</artifactId>
+	<artifactId>bbrow-blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bbrow_webblog</name>
+	<name>bbrow-blog</name>
 	<description>Spring Boot Webblog Project</description>
 
 	<properties>
@@ -67,11 +67,27 @@
 	</dependencies>
 
 	<build>
-		<finalName>bbrow_webblog</finalName>
+		<finalName>bbrow-blog</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://tomcat:8080/manager/text</url>
+					<server>tomcat</server>
+					<path>/bbrow-blog</path>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
