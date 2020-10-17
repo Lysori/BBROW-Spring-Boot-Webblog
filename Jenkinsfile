@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-       YML = 'buildImage.yml'
+       BUILDYML = 'buildImage.yml'
        PUSHYML = 'loginPush.yml'
     }
     stages {
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 script {
                     
-                  ansibleplay.imagebuild($YML)
+                  ansibleplay.imagebuild(BUILDYML)
                     
                 }
             }
@@ -61,7 +61,7 @@ pipeline {
                 
                 script {
                     
-                  ansibleplay.imagepush()
+                  ansibleplay.imagepush(PUSHYML)
                     
                 }
               }
