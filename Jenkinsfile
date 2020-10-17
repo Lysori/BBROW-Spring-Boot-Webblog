@@ -35,12 +35,13 @@ pipeline {
         }
 
         stage('Package and deploy to Nexus') {
-            steps 
-                {configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_SETTINGS')])
-                script {
+            steps{
+                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_SETTINGS')]){
+                     script{
                     
-                    mvn.deploy()
+                        mvn.deploy()
                     
+                    }
                 }
             }
         }
