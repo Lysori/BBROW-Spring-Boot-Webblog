@@ -15,7 +15,7 @@
         artifact_id: bbrow-blog
         extension: war
         repository_url: http://nexus:8081/repository/maven-snapshots/
-        dest: '{{WORKSPACE}}/target'
+        dest: /var/jenkins_home/workspace/BBROW_Multi_develop/target
 
     - name: Build dummy nginx image
       docker_image:
