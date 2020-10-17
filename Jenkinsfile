@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     
-                    echo 'mvn.deploy()'
+                    mvn.deploy()
                     
                 }
             }
