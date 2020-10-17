@@ -40,7 +40,7 @@ pipeline {
             steps {
                 script {
                     
-                    echo 'deploy to nexus still not possible'
+                    echo 'mvn.deploy()'
                     
                 }
             }
@@ -57,12 +57,16 @@ pipeline {
         }
      stage('Push Image') {
             steps {
+              withCredentials([usernamePassword(credentialsId: 'AZURECR', usernameVariable: 'AZURECR_USERNAME', passwordVariable: 'AZURECR_PASSWORD')]) {
+                
                 script {
                     
                   ansibleplay.imagepush()
                     
                 }
+              }
             }
+            
         }
      stage('Deployment to Tomcat') {
             steps {
