@@ -6,7 +6,7 @@
       docker_image:
         state: absent
         name: bbrow/nginxtest
-        tag: v2
+        tag: v3
 
     - name: Build dummy nginx image
       docker_image:
@@ -14,5 +14,5 @@
         build:
          pull: no
          path: testdockerfiles/
-        tag: v2
+        tag: v3
         source: build
