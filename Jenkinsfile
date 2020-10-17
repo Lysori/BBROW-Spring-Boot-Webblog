@@ -36,7 +36,7 @@ pipeline {
 
         stage('Package and deploy to Nexus') {
             steps{
-                configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_SETTINGS')]){
+               withCredentials([secretFile(fileId: 'mavensettings')]) {
                      script{
                     
                         mvn.deploy()
