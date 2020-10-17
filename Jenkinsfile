@@ -37,7 +37,7 @@ pipeline {
         stage('Package and deploy to Nexus') {
             steps{
                 configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_SETTINGS')]){
-                    withCredentials([usernamePassword(credentialsId: 'Nexus', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
+                    withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASSWORD')]) {
                          script {
 
                             mvn.deploy()
