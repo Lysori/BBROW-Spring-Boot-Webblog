@@ -86,8 +86,6 @@
 					<url>http://52.233.247.20:8082/manager/text</url>
 					<server>tomcat</server>
 					<path>/bbrow-blog</path>
-					<username>${TOMCAT_USER}</username>
-					<password>${TOMCAT_PASSWORD}</password>
 					<update>true</update>
 				</configuration>
 			</plugin>
