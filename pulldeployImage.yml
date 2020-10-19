@@ -2,6 +2,12 @@
   - name: start webapp container and deploy to Tomcat
     hosts: localhost
     tasks:
+    - name: Create dockernetwork
+      docker_network:
+        name: bbrow-net
+        connected:
+          - mysql
+
     - name: Stop & remove Docker tomcat container
       docker_container:
         force_kill: true
@@ -12,10 +18,13 @@
       docker_container:
         name: tomcat_bbrow
         image: bbrowneutest:latest
-        env:
-          username: "{{TOMCAT_USER}}"
-          password: "{{TOMCAT_PASSWORD}}"
         ports: 
-          - 8888:8082
+          - 8082:8080
+        env:
+          MYSQL_HOST: mysql
+        links: 
+          - mysql
+        networks: 
+          - name: bbrow-net
 
 
