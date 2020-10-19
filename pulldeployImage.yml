@@ -7,7 +7,6 @@
         name: pipeline_bbrow
         connected:
           - mysql
-          - tomcat
           - jenkins
           - tomcat_bbrow
                          
@@ -20,7 +19,7 @@
         env:
           MYSQL_HOST: mysql
         ports: 
-          - 8082:8080
+          - 8082:80
         links: 
           - mysql
 
