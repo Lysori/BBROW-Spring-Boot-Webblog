@@ -55,6 +55,7 @@ pipeline {
                     
                 }
             }
+        }
     
      stage('Push Image') {
             steps {
