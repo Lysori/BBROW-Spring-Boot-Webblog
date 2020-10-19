@@ -9,6 +9,7 @@
           - mysql
           - tomcat
           - jenkins
+          - tomcat_bbrow
                          
     - name: Create Docker container with tomcat & add to network
       docker_container:
