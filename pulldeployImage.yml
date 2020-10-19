@@ -5,6 +5,9 @@
     - name: Build Docker Network
       docker_network: 
         name: pipeline_bbrow
+        connected:
+          - mysql
+          - jenkins
                          
     - name: Create Docker container with tomcat & add to network
       docker_container:
