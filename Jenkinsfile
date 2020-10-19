@@ -74,6 +74,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'TOMCAT_USER', passwordVariable: 'TOMCAT_PASSWORD')]) {
                    
+                    sh 'mvn clean package'
                     sh 'docker build -t bbrowneutest .'
                     sh 'ansible-playbook pulldeployImage.yml'
                
