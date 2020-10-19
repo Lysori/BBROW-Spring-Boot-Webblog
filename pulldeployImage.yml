@@ -16,8 +16,6 @@
         image: bbrowneutest:latest
         networks: 
           - name: pipeline_bbrow
-        env:
-          MYSQL_HOST: mysql
         ports: 
           - 8082:80
         links: 
