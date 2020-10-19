@@ -13,6 +13,6 @@
         name: tomcat_bbrow
         image: bbrowneutest:latest
         ports: 
-          - 8082:8080
+          - 9999:8082
 
 
