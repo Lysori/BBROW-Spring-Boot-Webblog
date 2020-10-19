@@ -64,7 +64,7 @@ pipeline {
             steps {
                script {
                     
-                  ansibleplay.imagepullpush(ANSIBLE_YML1)
+                  ansibleplay.imagedeploy(ANSIBLE_YML2)
                     
                 }
             }

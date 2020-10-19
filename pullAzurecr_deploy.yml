@@ -7,6 +7,11 @@
         force_kill: true
         state: absent
         name: tomcat_bbrow
+    
+    - name: pull docker image from AzureCr.io
+      docker_image:
+        name: devopsdus2020.azurecr.io/bbrow:v3
+        source: pull
   
     - name: Start a new bbrow-blog container
       docker_container:
