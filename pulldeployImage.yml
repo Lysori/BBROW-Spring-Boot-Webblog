@@ -1,0 +1,31 @@
+---
+  - name: start webapp container and deploy to Tomcat
+     hosts: localhost
+     tasks:
+
+     - name: Build Docker Network
+       docker_network: 
+         name: pipeline_bbrow
+
+     - name:
+       docker_container:
+         image: mysql:latest
+         ports: 
+          - 8085:3306
+         networks:
+          - name: pipeline_bbrow
+                    
+
+               
+     - name: Create Docker container with tomcat & add to network
+       docker_container:
+         name: tomcat_bbrow
+         image: bbrow/bbrow-blog:v3
+         networks: 
+           - name: pipeline_bbrow
+         ports: 
+           - 8082:8080
+         links: 
+           - mysql
+
+

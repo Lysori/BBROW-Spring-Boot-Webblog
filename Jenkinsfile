@@ -3,6 +3,7 @@ pipeline {
     environment {
        BUILDYML = 'buildImage.yml'
        PUSHYML = 'loginPush.yml'
+       PULLDEPLOYYML = 'pulldeployImage.yml'
     }
     stages {
         stage('mvn compile') {
