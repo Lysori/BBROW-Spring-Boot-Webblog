@@ -6,7 +6,5 @@
       docker_container:
         name: tomcat_bbrow
         image: bbrowneutest:latest
-        ports: 
-          - 8082:80
 
 
