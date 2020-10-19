@@ -74,7 +74,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'TOMCAT_USER', passwordVariable: 'TOMCAT_PASSWORD')]) {
                    
-                    sh 'ansible-playbook pulldeployImage.yml'
+                    sh 'ansible-playbook pulldeployImage.yml -e TOMCAT_USER=$TOMCAT_USER -e TOMCAT_PASSWORD=$TOMCAT_PASSWORD'
                
                 }
             }
