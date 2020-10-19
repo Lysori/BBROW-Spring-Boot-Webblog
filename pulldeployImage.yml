@@ -12,6 +12,9 @@
       docker_container:
         name: tomcat_bbrow
         image: bbrowneutest:latest
+        env:
+          username: "{{TOMCAT_USER}}"
+          password: "{{TOMCAT_PASSWORD}}"
         ports: 
           - 8888:8082
 
