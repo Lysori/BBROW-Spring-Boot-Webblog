@@ -7,6 +7,8 @@
         name: pipeline_bbrow
         connected:
           - mysql
+          - tomcat
+          - jenkins
                          
     - name: Create Docker container with tomcat & add to network
       docker_container:
