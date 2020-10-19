@@ -53,7 +53,7 @@ pipeline {
                 
                 script {
                     
-                  ansibleplay.imagepush(ANSIBLE_YML1)
+                  ansibleplay.imagepullpush(ANSIBLE_YML1)
                     
                 }
               }
