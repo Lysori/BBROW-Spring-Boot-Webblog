@@ -4,7 +4,7 @@
     tasks:
     - name: Stop & remove Docker tomcat container
       docker_container:
-        force_absent: true
+        force_kill: true
         state: absent
         name: tomcat_bbrow
   
