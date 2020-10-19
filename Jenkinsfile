@@ -51,11 +51,11 @@ pipeline {
             steps {
                 script {
                     
-                  ansibleplay.imagebuild(BUILDYML)
+                  ansibleplay.imagepull(BUILDYML)
                     
                 }
             }
-        }
+    
      stage('Push Image') {
             steps {
               withCredentials([usernamePassword(credentialsId: 'AZURECR', usernameVariable: 'AZURECR_USER', passwordVariable: 'AZURECR_PASSWORD')]) {

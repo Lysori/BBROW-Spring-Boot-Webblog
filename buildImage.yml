@@ -4,6 +4,7 @@
     tasks:  
     - name: Remove image
       docker_image:
+        force_absent: true
         state: absent
         name: bbrow/nginxtest
         tag: v3
