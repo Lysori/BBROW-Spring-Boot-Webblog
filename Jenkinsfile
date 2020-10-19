@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
        BUILDYML = 'buildImage.yml'
-       PUSHYML = 'loginPush.yml'
+       ANSIBLE_YML1 = 'pullNexus_pushAzurecr.yml'
        PULLDEPLOYYML = 'pulldeployImage.yml'
     }
     stages {
@@ -46,16 +46,6 @@ pipeline {
                 }
             }
         }
-
-     stage('Pull and Build Image') {
-            steps {
-                script {
-                    
-                  ansibleplay.imagepull(BUILDYML)
-                    
-                }
-            }
-        }
     
      stage('Push Image') {
             steps {
@@ -63,24 +53,22 @@ pipeline {
                 
                 script {
                     
-                  ansibleplay.imagepush(PUSHYML)
+                  ansibleplay.imagepush(ANSIBLE_YML1)
                     
                 }
               }
             }
             
         }
-        stage('mvn deploy on Tomcat') {
+        /*stage('mvn deploy on Tomcat') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'TOMCAT_USER', passwordVariable: 'TOMCAT_PASSWORD')]) {
                    
-                    sh 'mvn clean package'
-                    sh 'docker build -t bbrowneutest .'
                     sh 'ansible-playbook pulldeployImage.yml'
                
                 }
             }
-        }
+        }*/
         
     }
 }

@@ -1,14 +1,14 @@
 ---
-  - name: start webapp container and deploy to Tomcat
+  - name: Pull the bbrow-blog docker image and deploy it on tomcat
     hosts: localhost
     tasks:
-    - name: Stop & remove Docker tomcat container
+    - name: Stop & remove bbrow-blog container 
       docker_container:
         force_kill: true
         state: absent
         name: tomcat_bbrow
   
-    - name: Create Docker container with tomcat & add to network
+    - name: Start a new bbrow-blog container
       docker_container:
         name: tomcat_bbrow
         image: bbrowneutest:latest

@@ -1,0 +1,42 @@
+---
+  - name: Pull bbrow-blog.war from nexus, build the image and push it to Azurecr.io
+    hosts: localhost
+    tasks:  
+    - name: Remove image
+      docker_image:
+        force_absent: true
+        state: absent
+        name: bbrow/nginxtest
+        tag: v3
+    
+    - name: Pull bbrow-blog.war from nexus into the target dir 
+      local_action:
+        module: community.general.maven_artifact
+        group_id: de.awacademy
+        artifact_id: bbrow-blog
+        extension: war
+        repository_url: http://nexus:8081/repository/maven-snapshots/
+        dest: "{{DEST}}"
+
+    - name: Build and tag the docker image of bbrow-blog using a Dockerfile
+      docker_image:
+        name: bbrow/nginxtest
+        build:
+         pull: no
+         path: testdockerfiles/
+        tag: v3
+        source: build
+    
+    - name: Login to Container Registry devopsdus2020.azurecr.io
+      docker_login:
+          registry_url: devopsdus2020.azurecr.io
+          username: "{{USER}}"
+          password: "{{PASSWORD}}"
+          
+    - name: Push the bbrow-blog docker image to Azurecr.io
+      docker_image:
+          name: bbrow/nginxtest:v3
+          repository: devopsdus2020.azurecr.io/bbrow
+          tag: v3
+          push: yes
+          source: local
