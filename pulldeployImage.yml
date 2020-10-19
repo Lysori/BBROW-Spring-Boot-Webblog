@@ -1,7 +1,13 @@
 ---
   - name: start webapp container and deploy to Tomcat
     hosts: localhost
-    tasks:                        
+    tasks:
+    - name: Stop & remove Docker tomcat container
+      docker_container:
+        force_absent: true
+        state: absent
+        name: tomcat_bbrow
+  
     - name: Create Docker container with tomcat & add to network
       docker_container:
         name: tomcat_bbrow
