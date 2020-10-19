@@ -60,15 +60,15 @@ pipeline {
             }
             
         }
-        /*stage('mvn deploy on Tomcat') {
+        stage('deploy with ansible') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'tomcat', usernameVariable: 'TOMCAT_USER', passwordVariable: 'TOMCAT_PASSWORD')]) {
-                   
-                    sh 'ansible-playbook pulldeployImage.yml'
-               
+               script {
+                    
+                  ansibleplay.imagepullpush(ANSIBLE_YML1)
+                    
                 }
             }
-        }*/
+        }
         
     }
 }
