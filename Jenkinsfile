@@ -1,9 +1,8 @@
 pipeline {
     agent any
     environment {
-       BUILDYML = 'buildImage.yml'
        ANSIBLE_YML1 = 'pullNexus_pushAzurecr.yml'
-       PULLDEPLOYYML = 'pulldeployImage.yml'
+       ANSIBLE_YML2 = 'pullAzurecr_deploy.yml'
     }
     stages {
         stage('mvn compile') {
