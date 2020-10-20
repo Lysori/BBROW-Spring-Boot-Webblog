@@ -16,6 +16,6 @@
     - name: Start a new bbrow-blog container
       docker_container:
         name: bbrow-webblog
-        image: bbrow-webblog:v1
+        image: devopsdus2020.azurecr.io/bbrow-webblog:v1
         ports: 
           - 8080:8080
