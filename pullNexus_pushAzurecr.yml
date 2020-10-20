@@ -15,7 +15,7 @@
         group_id: de.awacademy
         artifact_id: bbrow-blog
         extension: war
-        repository_url: http://localhost:8081/repository/maven-snapshots/
+        repository_url: http://nexus:8081/repository/maven-snapshots/
         dest: "{{DEST}}"
 
     - name: Build and tag the docker image of bbrow-blog using a Dockerfile
