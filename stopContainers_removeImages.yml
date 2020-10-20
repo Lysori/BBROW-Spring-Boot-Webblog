@@ -10,6 +10,6 @@
 
     - name: Remove bbrow-webblog image 
       docker_image:
-        force_kill: true
+        force_absent: true
         state: absent
-        name: bbrow-webblog:v1
+        name: devopsdus2020.azurecr.io/bbrow-webblog:v1
