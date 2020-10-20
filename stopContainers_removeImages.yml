@@ -1,0 +1,15 @@
+---
+  - name: Stop bbrow-webblog container and remove bbrow-webblog image
+    hosts: localhost
+    tasks:
+    - name: Stop bbrow-webbblog container 
+      docker_container:
+        force_kill: true
+        state: absent
+        name: bbrow-webblog
+
+    - name: Remove bbrow-webblog image 
+      docker_image:
+        force_kill: true
+        state: absent
+        name: bbrow-webblog:v1

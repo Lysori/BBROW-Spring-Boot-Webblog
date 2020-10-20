@@ -10,21 +10,12 @@
     
     - name: pull docker image from AzureCr.io (noch Dummy image zu testzwecken)
       docker_image:
-        name: devopsdus2020.azurecr.io/bbrow:v3
+        name: devopsdus2020.azurecr.io/bbrow-webblog:v1
         source: pull
-    
-    - name: Build and tag the docker image of bbrow-blog using a Dockerfile
-      docker_image:
-        name: bbrowneutest
-        build:
-         pull: no
-         path: .
-        tag: v3
-        source: build
         
     - name: Start a new bbrow-blog container
       docker_container:
-        name: tomcat_bbrow
-        image: bbrowneutest:v3
+        name: bbrow-webblog
+        image: bbrow-webblog:v1
         ports: 
           - 8080:8080

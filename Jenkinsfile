@@ -3,6 +3,7 @@ pipeline {
     environment {
        ANSIBLE_YML1 = 'pullNexus_pushAzurecr.yml'
        ANSIBLE_YML2 = 'pullAzurecr_deploy.yml'
+       ANSIBLE_YML3 = 'stopContainers_removeImages.yml'
     }
     stages {
         stage('mvn compile') {
@@ -34,7 +35,7 @@ pipeline {
             }
         }
 
-        stage('Package and deploy to Nexus') {
+        stage('Package and Deploy to Nexus') {
             steps{
                 configFileProvider([configFile(fileId: 'default', variable: 'MAVEN_GLOBAL_SETTINGS')]){ 
                     script {
@@ -46,7 +47,7 @@ pipeline {
             }
         }
     
-     stage('Push Image') {
+     stage('Pull war from Nexus, build the Image and Push it to Azurecr') {
             steps {
               withCredentials([usernamePassword(credentialsId: 'AZURECR', usernameVariable: 'AZURECR_USER', passwordVariable: 'AZURECR_PASSWORD')]) {
                 
@@ -59,7 +60,7 @@ pipeline {
             }
             
         }
-        stage('deploy with ansible') {
+        stage('Deploy with Ansible') {
             steps {
                script {
                     
@@ -68,6 +69,14 @@ pipeline {
                 }
             }
         }
-        
+        stage('Stop Containers and remove Images') {
+            steps {
+               script {
+                    
+                  ansibleplay.execute(ANSIBLE_YML3)
+                    
+                }
+            }
+        }
     }
 }
