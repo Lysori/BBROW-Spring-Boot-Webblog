@@ -52,7 +52,7 @@ pipeline {
                 
                 script {
                     
-                  ansibleplay.imagepullpush(ANSIBLE_YML1)
+                  ansibleplay.nexuspullazurecrpush(ANSIBLE_YML1)
                     
                 }
               }
@@ -63,7 +63,7 @@ pipeline {
             steps {
                script {
                     
-                  ansibleplay.imagedeploy(ANSIBLE_YML2)
+                  ansibleplay.tomcatdeploy(ANSIBLE_YML2)
                     
                 }
             }
