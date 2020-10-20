@@ -2,6 +2,11 @@
   - name: Stop bbrow-webblog container and remove bbrow-webblog image
     hosts: localhost
     tasks:
+    - name: sleep for 100 seconds and continue with play
+      wait_for:
+        timeout: 100
+      delegate_to: localhost
+    
     - name: Stop bbrow-webbblog container 
       docker_container:
         force_kill: true

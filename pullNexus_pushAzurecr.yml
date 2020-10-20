@@ -40,3 +40,9 @@
           tag: v1
           push: yes
           source: local
+      
+    - name: Remove bbrow-webblog image
+      docker_image:
+          force_absent: true
+          state: absent
+          name: bbrow-webblog/blog:v1

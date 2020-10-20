@@ -2,11 +2,6 @@
   - name: Pull the bbrow-blog docker image and deploy it on tomcat
     hosts: localhost
     tasks:
-    - name: Stop & remove bbrow-blog container 
-      docker_container:
-        force_kill: true
-        state: absent
-        name: tomcat_bbrow
     
     - name: pull docker image from AzureCr.io (noch Dummy image zu testzwecken)
       docker_image:
