@@ -1,0 +1,15 @@
+---
+- name: Pull bbrow-blog.war from nexus, build the image and push it to Azurecr.io
+  hosts: localhost
+  tasks:  
+  - name: Build and tag the docker image of bbrow-blog using a Dockerfile
+    docker_image:
+      name: mysqltest8
+      build:
+        pull: no
+        path: .
+        args:
+          USER: "{{MYSQLUSER}}"
+          PASSWORD: "{{MYSQLPASSWORD}}"
+      tag: v1
+      source: build
