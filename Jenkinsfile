@@ -49,8 +49,10 @@ pipeline {
     
      stage('Pull war from Nexus, build the Image and Push it to Azurecr') {
             steps {
-              withCredentials([usernamePassword(credentialsId: 'AZURECR', usernameVariable: 'AZURECR_USER', passwordVariable: 'AZURECR_PASSWORD')]
-              [usernamePassword(credentialsId: 'MYSQL', usernameVariable: 'MYSQL_USER', passwordVariable: 'MYSQL_PASSWORD')]) { 
+              withCredentials([
+                  usernamePassword(credentialsId: 'AZURECR', usernameVariable: 'AZURECR_USER', passwordVariable: 'AZURECR_PASSWORD'),
+                  usernamePassword(credentialsId: 'MYSQL', usernameVariable: 'MYSQL_USER', passwordVariable: 'MYSQL_PASSWORD')
+              ]) { 
                     script {
                     
                      ansibleplay.nexuspullazurecrpush(ANSIBLE_YML1)
