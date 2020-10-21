@@ -73,7 +73,7 @@ pipeline {
             steps {
                script {
                     
-                  ansibleplay.execute(ANSIBLE_YML3)
+                  ansibleplay.execute(ANSIBLE_YML2)
                     
                 }
             }
