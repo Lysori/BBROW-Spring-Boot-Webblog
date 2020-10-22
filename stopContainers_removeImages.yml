@@ -4,7 +4,7 @@
     tasks:
     - name: sleep for 30 seconds and continue with play
       wait_for:
-        timeout: 100
+        timeout: 200
       delegate_to: localhost
     
     - name: Stop bbrow-webbblog container 
