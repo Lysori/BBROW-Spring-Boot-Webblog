@@ -24,6 +24,9 @@
         build:
          pull: no
          path: .
+         args:
+           USER: "{{MYSQLUSER}}"
+           PASSWORD: "{{MYSQLPASSWORD}}"
         tag: v1
         source: build
     
