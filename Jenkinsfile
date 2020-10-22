@@ -73,11 +73,13 @@ pipeline {
         }
         stage('Stop Containers and remove Images') {
             steps {
-               script {
+
+                echo 'ansibleplay.execute(ANSIBLE_YML3) disabled -> live demo'
+               /*script {
                     
                   ansibleplay.execute(ANSIBLE_YML3)
                     
-                }
+                }*/
             }
         }
     }
